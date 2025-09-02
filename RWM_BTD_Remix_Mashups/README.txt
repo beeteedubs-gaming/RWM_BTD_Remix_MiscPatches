@@ -1,1 +1,2 @@
-Repository for Beeteedubs Mod Template
+This mod is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0).
+You may use, share, modify, and redistribute it—even commercially—as long as you provide appropriate credit (e.g., “Original mod by Beeteedubs Gaming”).
