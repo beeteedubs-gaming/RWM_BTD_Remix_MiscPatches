@@ -4,7 +4,6 @@
 	<author>beeteedubs</author>
 	<supportedVersions>
 		<li>1.6</li>
-		<li>1.5</li>
 	</supportedVersions>
 	<packageId>btd.remix.mashups</packageId>
 	<description>This mod may add various factions, xenotypes, and ideologies to the game, as well as patch various mods (if present) to my personal taste to support my playthroughs.</description>
@@ -52,11 +51,6 @@
 			<packageId>Sarg.AlphaMemes</packageId>
 			<displayName>Alpha Memes</displayName>
 			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2661356814</steamWorkshopUrl>
-		</li>
-		<li>
-			<packageId>VanillaExpanded.VAPPE</packageId>
-			<displayName>Vanilla Apparel Expanded</displayName>
-			<steamWorkshopUrl>steam://url/CommunityFilePage/1814987817</steamWorkshopUrl>
 		</li>
 	</modDependencies>
 	<loadAfter>
