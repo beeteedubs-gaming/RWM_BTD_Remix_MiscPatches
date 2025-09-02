@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<Patch>
+	<!-- VRE Vanilla -->
+
+		<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/ThingDef[@Name="DeathrestBuildingBase"]/researchPrerequisites</xpath>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[@Name="DeathrestBuildingHemogenFueled"]</xpath>
+			<value>
+				<ThingDef ParentName="DeathrestBuildingBase" Name="DeathrestBuildingHemogenFueled" Abstract="True">
+				<comps>
+				<li Class="CompProperties_Flickable"/>
+				<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>0.5</fuelConsumptionRate>
+				<fuelCapacity>5</fuelCapacity>
+				<fuelLabel>Hemogen</fuelLabel>
+				<fuelFilter>
+				<thingDefs>
+				<li>HemogenPack</li>
+				</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>1</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+				<externalTicking>true</externalTicking>
+				<autoRefuelPercent>0.05</autoRefuelPercent>
+				<canEjectFuel>true</canEjectFuel>
+				</li>
+				</comps>
+				</ThingDef>
+			</value>
+		</Operation>
+
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Hemopump"]</xpath>
+			<value>
+			  <ThingDef ParentName="DeathrestBuildingHemogenFueled">
+				<defName>Hemopump</defName>
+				<label>hemopump</label>
+				<description>This blood-refining pump increases the amount of hemogen a deathresting person can store in their body. It must be connected to a deathrest casket to function.\n\nThis building needs to consume hemogen to function.</description>
+				<graphicData>
+				  <texPath>Things/Building/Misc/Hemopump/Hemopump</texPath>
+				  <graphicClass>Graphic_Multi</graphicClass>
+				  <drawSize>(1,2)</drawSize>
+				  <shadowData>
+					<volume>(0.9, 0.3, 1.8)</volume>
+				  </shadowData>
+				  <damageData>
+					<rect>(0.1,0.1,0.9,1.8)</rect>
+				  </damageData>
+				</graphicData>
+				<castEdgeShadows>true</castEdgeShadows>
+				<defaultPlacingRot>East</defaultPlacingRot>
+				<statBases>
+				  <MaxHitPoints>200</MaxHitPoints>
+				  <WorkToBuild>5000</WorkToBuild>
+				  <Mass>30</Mass>
+				  <Flammability>0.4</Flammability>
+				</statBases>
+				<size>(1,2)</size>
+				<costList>
+				  <Steel>100</Steel>
+				  <DankPyon_ComponentBasic>4</DankPyon_ComponentBasic>
+				  <HemogenPack>5</HemogenPack>
+				</costList>
+				<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+				<comps>
+				  <li Class="CompProperties_DeathrestBindable">
+					<hemogenLimitOffset>0.25</hemogenLimitOffset>
+					<soundStart>Hemopump_Start</soundStart>
+					<soundEnd>Hemopump_Stop</soundEnd>
+					<soundWorking>Hemopump_Ambience</soundWorking>
+				  </li>
+				</comps>
+			  </ThingDef>
+			</value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="HemogenAmplifier"]</xpath>
+			<value>
+			  <ThingDef ParentName="DeathrestBuildingHemogenFueled">
+				<defName>HemogenAmplifier</defName>
+				<label>hemogen amplifier</label>
+				<description>This device leaves a deathrester in a hemogen-amplified state so they gain more hemogen from any hemogen source. Using a gland probe and blood analyzer, it links with a deathresting person, stimulating hemogen glands into a more active state. It must be connected to a deathrest casket to function.\n\nThis building needs to consume hemogen to function.</description>
+				<graphicData>
+				  <texPath>Things/Building/Misc/HemogenAmplifier/HemogenAmplifier</texPath>
+				  <graphicClass>Graphic_Multi</graphicClass>
+				  <drawSize>(1,2)</drawSize>
+				  <shadowData>
+					<volume>(0.85, 0.3, 1.7)</volume>
+				  </shadowData>
+				  <damageData>
+					<rect>(0.15,0.15,0.85,1.7)</rect>
+				  </damageData>
+				</graphicData>
+				<castEdgeShadows>true</castEdgeShadows>
+				<defaultPlacingRot>East</defaultPlacingRot>
+				<statBases>
+				  <MaxHitPoints>200</MaxHitPoints>
+				  <WorkToBuild>5000</WorkToBuild>
+				  <Mass>30</Mass>
+				  <Flammability>0.4</Flammability>
+				</statBases>
+				<size>(1,2)</size>
+				<costList>
+				  <Steel>200</Steel>
+				  <DankPyon_ComponentBasic>4</DankPyon_ComponentBasic>
+				  <HemogenPack>5</HemogenPack>
+				</costList>
+				<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+				<descriptionHyperlinks>
+				  <HediffDef>HemogenAmplified</HediffDef>
+				</descriptionHyperlinks>
+				<comps>
+				  <li Class="CompProperties_DeathrestBindable">
+					<hediffToApply>HemogenAmplified</hediffToApply>
+					<soundStart>HemogenAmplifier_Start</soundStart>
+					<soundEnd>HemogenAmplifier_Stop</soundEnd>
+					<soundWorking>HemogenAmplifier_Ambience</soundWorking>
+				  </li>
+				</comps>
+			  </ThingDef>
+			</value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="GlucosoidPump"]</xpath>
+			<value>
+			  <ThingDef ParentName="DeathrestBuildingHemogenFueled">
+				<defName>GlucosoidPump</defName>
+				<label>glucosoid pump</label>
+				<description>This device allows a deathrester to move faster after deathrest is complete. It pumps the body with extra muscle-signaling factors while cleaning waste products from muscle tissue. The effect lasts until the individual deathrests again. It must be connected to a deathrest casket to function.\n\nThis building must consume hemogen to function.</description>
+				<graphicData>
+				  <texPath>Things/Building/Misc/GlucosoidPump/GlucosoidPump</texPath>
+				  <graphicClass>Graphic_Multi</graphicClass>
+				  <drawSize>(1,2)</drawSize>
+				  <shadowData>
+					<volume>(0.9, 0.3, 1.8)</volume>
+				  </shadowData>
+				  <damageData>
+					<rect>(0.1,0.1,0.9,1.8)</rect>
+				  </damageData>
+				</graphicData>
+				<castEdgeShadows>true</castEdgeShadows>
+				<defaultPlacingRot>East</defaultPlacingRot>
+				<statBases>
+				  <MaxHitPoints>200</MaxHitPoints>
+				  <WorkToBuild>4000</WorkToBuild>
+				  <Mass>50</Mass>
+				  <Flammability>0.4</Flammability>
+				</statBases>
+				<size>(1,2)</size>
+				<costList>
+				  <Steel>150</Steel>
+				  <DankPyon_ComponentBasic>6</DankPyon_ComponentBasic>
+				  <HemogenPack>5</HemogenPack>
+				</costList>
+				<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+				<descriptionHyperlinks>
+				  <HediffDef>GlucosoidRush</HediffDef>
+				</descriptionHyperlinks>
+				<comps>
+				  <li Class="CompProperties_DeathrestBindable">
+					<stackLimit>4</stackLimit>
+					<hediffToApply>GlucosoidRush</hediffToApply>
+					<soundStart>GlucosoidPump_Start</soundStart>
+					<soundEnd>GlucosoidPump_Stop</soundEnd>
+					<soundWorking>GlucosoidPump_Ambience</soundWorking>
+				  </li>
+				</comps>
+			  </ThingDef>
+			</value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="PsychofluidPump"]</xpath>
+			<value>
+			  <ThingDef ParentName="DeathrestBuildingHemogenFueled">
+				<defName>PsychofluidPump</defName>
+				<label>psychofluid pump</label>
+				<description>This device enhances the psychic sensitivity of a deathresting person by rhythmically stimulating neural tissues. It must be connected to a deathrest casket to function.\n\nThis building needs to consume hemogen to function.</description>
+				<graphicData>
+				  <texPath>Things/Building/Misc/PsychofluidPump/PsychofluidPump</texPath>
+				  <graphicClass>Graphic_Multi</graphicClass>
+				  <drawSize>(1,2)</drawSize>
+				  <shadowData>
+					<volume>(0.6, 0.3, 1.8)</volume>
+				  </shadowData>
+				  <damageData>
+					<rect>(0.3,0.2,0.7,1.8)</rect>
+				  </damageData>
+				</graphicData>
+				<defaultPlacingRot>East</defaultPlacingRot>
+				<statBases>
+				  <MaxHitPoints>200</MaxHitPoints>
+				  <WorkToBuild>4000</WorkToBuild>
+				  <Mass>50</Mass>
+				  <Flammability>0.4</Flammability>
+				</statBases>
+				<size>(1,2)</size>
+				<costList>
+				  <Steel>150</Steel>
+				  <DankPyon_ComponentBasic>6</DankPyon_ComponentBasic>
+				  <HemogenPack>5</HemogenPack>
+				</costList>
+				<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+				<descriptionHyperlinks>
+				  <HediffDef>PsychofluidRush</HediffDef>
+				</descriptionHyperlinks>
+				<comps>
+				  <li Class="CompProperties_DeathrestBindable">
+					<stackLimit>4</stackLimit>
+					<hediffToApply>PsychofluidRush</hediffToApply>
+					<soundStart>PsychofluidPump_Start</soundStart>
+					<soundEnd>PsychofluidPump_Stop</soundEnd>
+					<soundWorking>PsychofluidPump_Ambience</soundWorking>
+				  </li>
+				</comps>
+			  </ThingDef>
+			</value>
+		</Operation>	
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="DeathrestAccelerator"]</xpath>
+			<value>
+			  <ThingDef ParentName="DeathrestBuildingBase">
+				<defName>DeathrestAccelerator</defName>
+				<label>deathrest accelerator</label>
+				<description>This device connects with a deathresting person and makes deathrest complete quicker. It enhances the effect of the deathrest casket using finer blood analysis and more powerful chemicals. It must be connected to a deathrest casket to function.</description>
+				<graphicData>
+				  <texPath>Things/Building/Misc/DeathrestAccelerator/DeathrestAccelerator</texPath>
+				  <graphicClass>Graphic_Multi</graphicClass>
+				  <drawSize>(1,2)</drawSize>
+				  <shadowData>
+					<volume>(0.6, 0.3, 1.8)</volume>
+				  </shadowData>
+				  <damageData>
+					<rect>(0.3,0.2,0.7,1.8)</rect>
+				  </damageData>
+				</graphicData>
+				<defaultPlacingRot>East</defaultPlacingRot>
+				<statBases>
+				  <MaxHitPoints>200</MaxHitPoints>
+				  <WorkToBuild>4000</WorkToBuild>
+				  <Mass>50</Mass>
+				  <Flammability>0.4</Flammability>
+				</statBases>
+				<size>(1,2)</size>
+				<costList>
+				  <Steel>300</Steel>
+				  <DankPyon_ComponentBasic>4</DankPyon_ComponentBasic>
+				</costList>
+				<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+				<comps>
+				  <li Class="CompProperties_DeathrestBindable">
+					<stackLimit>2</stackLimit>
+					<deathrestEffectivenessFactor>1.2</deathrestEffectivenessFactor>
+					<displayTimeActive>false</displayTimeActive>
+					<soundWorking>DeathrestAccelerator_Ambience</soundWorking>
+				  </li>
+				</comps>
+			  </ThingDef>
+			</value>
+		</Operation>
+	
+	<!-- VRE Sanguophage -->
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_InvocationMatrix"]</xpath>
+			<value>
+				<ThingDef ParentName="DeathrestBuildingBase">
+					<defName>VRE_InvocationMatrix</defName>
+					<label>invocation matrix</label>
+					<thingClass>VanillaRacesExpandedSanguophage.Building_Deathrest_Extender</thingClass>
+					<description>A sophisticated device that infuses deathresting people with rare and potent sanguophage abilities, tapping into the very essence of their vampiric nature. Employing a complex system of blood conduits and essence resonators, the matrix connects to a deathrest casket and channels the life force of its occupant to unlock hidden potential within their bloodline. As the person slumbers in their deathrest state, the Invocation Matrix bestows upon them a selected, unique power. This building requires a constant supply of hemogen to operate.</description>
+					<graphicData>
+						<texPath>Building/InvocationMatrix/InvocationMatrix</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<drawSize>(2,2)</drawSize>
+						<shadowData>
+							<volume>(0.9, 0.9, 1.8)</volume>
+						</shadowData>
+						<damageData>
+							<rect>(0.1,0.1,0.9,1.8)</rect>
+						</damageData>
+					</graphicData>
+					<castEdgeShadows>true</castEdgeShadows>
+					<rotatable>false</rotatable>
+					<defaultPlacingRot>North</defaultPlacingRot>
+					<statBases>
+						<MaxHitPoints>200</MaxHitPoints>
+						<WorkToBuild>5000</WorkToBuild>
+						<Mass>30</Mass>
+						<Flammability>0.4</Flammability>
+					</statBases>
+					<size>(2,2)</size>
+					<costList>
+						<Steel>120</Steel>
+						<Gold>40</Gold>
+						<HemogenPack>5</HemogenPack>
+						<DankPyon_ComponentBasic>4</DankPyon_ComponentBasic>
+					</costList>
+					<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+					<comps>
+						<li Class="CompProperties_DeathrestBindable">
+							<soundStart>PsychofluidPump_Start</soundStart>
+							<soundEnd>PsychofluidPump_Stop</soundEnd>
+							<soundWorking>PsychofluidPump_Ambience</soundWorking>
+						</li>
+						<li Class="CompProperties_Refuelable">
+							<fuelConsumptionRate>0.5</fuelConsumptionRate>
+							<fuelCapacity>5</fuelCapacity>
+							<fuelLabel>Hemogen</fuelLabel>
+							<fuelFilter>
+								<thingDefs>
+									<li>HemogenPack</li>
+								</thingDefs>
+							</fuelFilter>
+							<initialFuelPercent>1</initialFuelPercent>
+							<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+							<externalTicking>true</externalTicking>
+							<autoRefuelPercent>0.05</autoRefuelPercent>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_HemodynamicAccelerator"]</xpath>
+			<value>
+				<ThingDef ParentName="DeathrestBuildingBase">
+					<defName>VRE_HemodynamicAccelerator</defName>
+					<label>hemodynamic accelerator</label>
+					<description>An advanced device designed to expedite the deathrest process at the cost of blood consumption. By connecting with a deathresting person, this apparatus employs intricate blood analysis and potent sanguine stimulants to maximize the efficiency of the deathrest casket. As it hastens the character's recovery, the Hemodynamic Accelerator demands a continuous supply of hemogen to fuel its powerful operation. To function, it must be connected to a deathrest casket, ensuring the swift rejuvenation of its occupant.</description>
+					<graphicData>
+						<texPath>Building/HemodynamicAccelerator/HemodynamicAccelerator</texPath>
+						<graphicClass>Graphic_Multi</graphicClass>
+						<drawSize>(2,2)</drawSize>
+						<shadowData>
+							<volume>(0.6, 0.6, 1.8)</volume>
+						</shadowData>
+						<damageData>
+							<rect>(0.3,0.3,0.7,1.8)</rect>
+						</damageData>
+					</graphicData>
+					<defaultPlacingRot>North</defaultPlacingRot>
+					<rotatable>false</rotatable>
+					<statBases>
+						<MaxHitPoints>200</MaxHitPoints>
+						<WorkToBuild>4000</WorkToBuild>
+						<Mass>50</Mass>
+						<Flammability>0.4</Flammability>
+					</statBases>
+					<size>(2,2)</size>
+					<costList>
+						<Steel>450</Steel>
+						<DankPyon_ComponentBasic>6</DankPyon_ComponentBasic>
+						<HemogenPack>10</HemogenPack>
+					</costList>
+					<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+					<comps>
+						<li Class="CompProperties_DeathrestBindable">
+							<stackLimit>2</stackLimit>
+							<deathrestEffectivenessFactor>1.3</deathrestEffectivenessFactor>
+							<displayTimeActive>false</displayTimeActive>
+							<soundWorking>DeathrestAccelerator_Ambience</soundWorking>
+						</li>
+						<li Class="CompProperties_Refuelable">
+							<fuelConsumptionRate>1</fuelConsumptionRate>
+							<fuelCapacity>10</fuelCapacity>
+							<fuelLabel>Hemogen</fuelLabel>
+							<fuelFilter>
+								<thingDefs>
+									<li>HemogenPack</li>
+								</thingDefs>
+							</fuelFilter>
+							<initialFuelPercent>1</initialFuelPercent>
+							<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+							<externalTicking>true</externalTicking>
+							<autoRefuelPercent>0.05</autoRefuelPercent>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_HemogenSolidifier"]</xpath>
+			<value>
+				<ThingDef ParentName="DeathrestBuildingBase">
+					<defName>VRE_HemogenSolidifier</defName>
+					<label>hemogen solidifier</label>
+					<description>A device specifically engineered to enhance the durability of deathresting characters by manipulating the molecular structure of their skin. Utilizing an array of bioresonant projectors and blood-based nano-agents, the solidifier targets the hemogen within the character's body, fortifying and thickening skin molecules. As the deathresting individual slumbers, the Hemogen Solidifier weaves a dense, protective layer around them, rendering their skin more resilient and damage-resistant. The device must be connected to a deathrest casket to operate, ensuring its occupant emerges from their rest with an augmented defensive capacity.</description>
+					<graphicData>
+						<texPath>Building/HemogenSolidifier/HemogenSolidifier</texPath>
+						<graphicClass>Graphic_Multi</graphicClass>
+						<drawSize>(1,2)</drawSize>
+						<shadowData>
+							<volume>(0.9, 0.3, 1.8)</volume>
+						</shadowData>
+						<damageData>
+							<rect>(0.1,0.1,0.9,1.8)</rect>
+						</damageData>
+					</graphicData>
+					<castEdgeShadows>true</castEdgeShadows>
+					<defaultPlacingRot>East</defaultPlacingRot>
+					<statBases>
+						<MaxHitPoints>200</MaxHitPoints>
+						<WorkToBuild>4000</WorkToBuild>
+						<Mass>50</Mass>
+						<Flammability>0.4</Flammability>
+					</statBases>
+					<size>(1,2)</size>
+					<costList>
+						<Steel>250</Steel>
+						<DankPyon_ComponentBasic>4</DankPyon_ComponentBasic>
+						<HemogenPack>5</HemogenPack>
+					</costList>
+					<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+					<descriptionHyperlinks>
+						<HediffDef>VRE_SolidifiedHemogen</HediffDef>
+					</descriptionHyperlinks>
+					<comps>
+						<li Class="CompProperties_DeathrestBindable">
+							<stackLimit>4</stackLimit>
+							<hediffToApply>VRE_SolidifiedHemogen</hediffToApply>
+							<soundStart>PsychofluidPump_Start</soundStart>
+							<soundEnd>PsychofluidPump_Stop</soundEnd>
+							<soundWorking>PsychofluidPump_Ambience</soundWorking>
+						</li>
+						<li Class="CompProperties_Refuelable">
+							<fuelConsumptionRate>0.5</fuelConsumptionRate>
+							<fuelCapacity>5</fuelCapacity>
+							<fuelLabel>Hemogen</fuelLabel>
+							<fuelFilter>
+								<thingDefs>
+									<li>HemogenPack</li>
+								</thingDefs>
+							</fuelFilter>
+							<initialFuelPercent>1</initialFuelPercent>
+							<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+							<externalTicking>true</externalTicking>
+							<autoRefuelPercent>0.05</autoRefuelPercent>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_SmallHemogenAmplifier"]</xpath>
+			<value>
+				<ThingDef ParentName="DeathrestBuildingBase">
+					<defName>VRE_SmallHemogenAmplifier</defName>
+					<label>small hemogen amplifier</label>
+					<description>This device leaves a deathrester in a hemogen-amplified state so they gain slightly more hemogen from any hemogen source. Using a gland probe and blood analyzer, it links with a deathresting person, stimulating hemogen glands into a more active state. It must be connected to a deathrest casket to function. This building needs to consume hemogen to function.</description>
+					<graphicData>
+						<texPath>Building/SmallHemogenAmplifier/SmallHemogenAmplifier</texPath>
+						<graphicClass>Graphic_Multi</graphicClass>
+						<drawSize>(1,1)</drawSize>
+						<shadowData>
+							<volume>(0.85, 0.3, 1.7)</volume>
+						</shadowData>
+						<damageData>
+							<rect>(0.15,0.15,0.85,1.7)</rect>
+						</damageData>
+					</graphicData>
+					<castEdgeShadows>true</castEdgeShadows>
+					<defaultPlacingRot>North</defaultPlacingRot>
+					<rotatable>false</rotatable>
+					<statBases>
+						<MaxHitPoints>100</MaxHitPoints>
+						<WorkToBuild>2500</WorkToBuild>
+						<Mass>15</Mass>
+						<Flammability>0.4</Flammability>
+					</statBases>
+					<size>(1,1)</size>
+					<costList>
+						<Steel>100</Steel>
+						<DankPyon_ComponentBasic>2</DankPyon_ComponentBasic>
+						<HemogenPack>5</HemogenPack>
+					</costList>
+					<constructionSkillPrerequisite>2</constructionSkillPrerequisite>
+					<descriptionHyperlinks>
+						<HediffDef>VRE_HemogenAmplifiedWeak</HediffDef>
+					</descriptionHyperlinks>
+					<comps>
+						<li Class="CompProperties_DeathrestBindable">
+						
+							<hediffToApply>VRE_HemogenAmplifiedWeak</hediffToApply>
+							<soundStart>HemogenAmplifier_Start</soundStart>
+							<soundEnd>HemogenAmplifier_Stop</soundEnd>
+							<soundWorking>HemogenAmplifier_Ambience</soundWorking>
+						</li>
+						<li Class="CompProperties_Refuelable">
+							<fuelConsumptionRate>0.5</fuelConsumptionRate>
+							<fuelCapacity>5</fuelCapacity>
+							<fuelLabel>Hemogen</fuelLabel>
+							<fuelFilter>
+								<thingDefs>
+									<li>HemogenPack</li>
+								</thingDefs>
+							</fuelFilter>
+							<initialFuelPercent>1</initialFuelPercent>
+							<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+							<externalTicking>true</externalTicking>
+							<autoRefuelPercent>0.05</autoRefuelPercent>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_SmallHemopump"]</xpath>
+			<value>
+				<ThingDef ParentName="DeathrestBuildingBase">
+					<defName>VRE_SmallHemopump</defName>
+					<label>small hemopump</label>
+					<description>This small, blood-refining pump increases the amount of hemogen a deathresting person can store in their body. It must be connected to a deathrest casket to function. This building needs to consume hemogen to function.</description>
+					<graphicData>
+						<texPath>Building/SmallHemopump/SmallHemopump</texPath>
+						<graphicClass>Graphic_Multi</graphicClass>
+						<drawSize>(1,1)</drawSize>
+						<shadowData>
+							<volume>(0.3, 0.3, 1.8)</volume>
+						</shadowData>
+						<damageData>
+							<rect>(0.1,0.1,0.9,1.8)</rect>
+						</damageData>
+					</graphicData>
+					<castEdgeShadows>true</castEdgeShadows>
+					<defaultPlacingRot>North</defaultPlacingRot>
+					<rotatable>false</rotatable>
+					<statBases>
+						<MaxHitPoints>100</MaxHitPoints>
+						<WorkToBuild>2500</WorkToBuild>
+						<Mass>15</Mass>
+						<Flammability>0.4</Flammability>
+					</statBases>
+					<size>(1,1)</size>
+					<costList>
+						<Steel>50</Steel>
+						<DankPyon_ComponentBasic>2</DankPyon_ComponentBasic>
+						<HemogenPack>5</HemogenPack>
+					</costList>
+					<constructionSkillPrerequisite>2</constructionSkillPrerequisite>
+					<comps>
+						<li Class="CompProperties_DeathrestBindable">
+							
+							<hemogenLimitOffset>0.15</hemogenLimitOffset>
+							<soundStart>Hemopump_Start</soundStart>
+							<soundEnd>Hemopump_Stop</soundEnd>
+							<soundWorking>Hemopump_Ambience</soundWorking>
+						</li>
+						<li Class="CompProperties_Refuelable">
+							<fuelConsumptionRate>0.5</fuelConsumptionRate>
+							<fuelCapacity>5</fuelCapacity>
+							<fuelLabel>Hemogen</fuelLabel>
+							<fuelFilter>
+								<thingDefs>
+									<li>HemogenPack</li>
+								</thingDefs>
+							</fuelFilter>
+							<initialFuelPercent>1</initialFuelPercent>
+							<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+							<externalTicking>true</externalTicking>
+							<autoRefuelPercent>0.05</autoRefuelPercent>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</Operation>
+		
+				<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_Draincasket"]</xpath>
+			<value>
+				<ThingDef ParentName="BuildingBase">
+						<defName>VRE_Draincasket</defName>
+						<label>draincasket</label>
+						<description>A sinister contraption designed to extract hemogen from an individual while maintaining their life force at the barest minimum. This dark and foreboding casket houses its occupant in a twilight state of existence with their body slowly drained of precious hemogen. Bound to their Draincasket, the occupant's survival depends on being fed regularly, as they can still starve to death.\n\nProduces hemogen packs a day as long as the occupant has food and the casket is connected to a hemogen network. The amount of hemogen packs depends on the occupant's hunger rate - someone with a worse metabolic efficiency will produce more hemogen packs while using proportionally more nutrition to do so. If deprived of food, the casket will eventually kill its occupant.</description>
+						<thingClass>Building</thingClass>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<graphicData>
+							<texPath>Building/Draincasket/Draincasket</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(2,2)</drawSize>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<blockWind>true</blockWind>
+						<fillPercent>1.0</fillPercent>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<statBases>
+							<MaxHitPoints>300</MaxHitPoints>
+							<WorkToBuild>4000</WorkToBuild>
+							<Flammability>1.0</Flammability>
+							<Mass>50</Mass>
+						</statBases>
+						<containedPawnsSelectable>true</containedPawnsSelectable>
+						<tickerType>Normal</tickerType>
+						<canOverlapZones>false</canOverlapZones>
+						<size>(2,2)</size>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<hasInteractionCell>true</hasInteractionCell>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+							<haulToContainerDuration>120</haulToContainerDuration>
+							<uninstallWork>1800</uninstallWork>
+							<fixedStorageSettings>
+								<filter>
+									<categories>
+										<li>Foods</li>
+									</categories>
+									<specialFiltersToDisallow>
+										<li>AllowPlantFood</li>
+									</specialFiltersToDisallow>
+									<disallowedThingDefs>
+										<li>Hay</li>
+										<li>HemogenPack</li>
+										<li>VRE_HemogenPack_Animal</li>
+										<li>VRE_HemogenPack_Corpse</li>
+										<li>VRE_HemogenPack_Sanguophage</li>
+									</disallowedThingDefs>
+								</filter>
+							</fixedStorageSettings>
+							<defaultStorageSettings>
+								<filter>
+									<allowedQualities>Awful~Normal</allowedQualities>
+									<categories>
+										<li>Foods</li>
+									</categories>
+									<disallowedCategories>
+										<li>EggsFertilized</li>
+										<li>FoodMeals</li>
+									</disallowedCategories>
+									<disallowedThingDefs>
+										<li>InsectJelly</li>
+										<li>Chocolate</li>
+										<li>Hay</li>
+										<li>HemogenPack</li>
+										<li>VRE_HemogenPack_Animal</li>
+										<li>VRE_HemogenPack_Corpse</li>
+										<li>VRE_HemogenPack_Sanguophage</li>
+									</disallowedThingDefs>
+								</filter>
+							</defaultStorageSettings>
+						</building>
+						<costList>
+							<Steel>180</Steel>
+							<Gold>30</Gold>
+							<DankPyon_ComponentBasic>4</DankPyon_ComponentBasic>
+						</costList>
+						<inspectorTabs>
+							<li>ITab_BiosculpterNutritionStorage</li>
+						</inspectorTabs>
+						<designationCategory>Biotech</designationCategory>
+						<comps>
+							<li Class="PipeSystem.CompProperties_Resource">
+								<pipeNet>VRE_HemogenNet</pipeNet>
+							</li>
+							<li MayRequire="VanillaExpanded.VNutrientE" Class="PipeSystem.CompProperties_Resource">
+								<pipeNet>VNPE_NutrientPasteNet</pipeNet>
+							</li>
+							<li Class="VanillaRacesExpandedSanguophage.CompProperties_Draincasket">
+								<!-- Base consumption rate. It's further scaled by the pawn's hunger rate. -->
+								<fuelConsumptionRate>1.6</fuelConsumptionRate>
+								<fuelCapacity>5</fuelCapacity>
+								<fuelLabel>Nutrition</fuelLabel>
+								<fuelGizmoLabel>Nutrition</fuelGizmoLabel>
+								<!-- Shouldn't matter (we don't call base.CompTick), but may as well use it as a precaution. -->
+								<externalTicking>false</externalTicking>
+								<fuelFilter>
+									<categories>
+										<li>Foods</li>
+									</categories>
+									<specialFiltersToDisallow>
+										<li>AllowPlantFood</li>
+									</specialFiltersToDisallow>
+									<disallowedThingDefs>
+										<li>Hay</li>
+									</disallowedThingDefs>
+								</fuelFilter>
+							</li>
+						</comps>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<constructEffect>ConstructMetal</constructEffect>
+						<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+					</ThingDef>
+			</value>
+		</Operation>
+
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_HemogenPipe"]</xpath>
+			<value>
+				<ThingDef ParentName="BuildingBase">
+					<defName>VRE_HemogenPipe</defName>
+					<label>hemogen pipe</label>
+					<description>A pipe that’s used to transport hemogen between taps, drains, vats and hemogen-fueled structures.</description>
+					<thingClass>PipeSystem.Building_Pipe</thingClass>
+					<category>Building</category>
+					<tickerType>Rare</tickerType>
+					<graphicData>
+						<texPath>Building/Linked/VRE_HemogenPipes_Atlas</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<linkType>Basic</linkType>
+						<linkFlags>
+							<li>Custom7</li>
+						</linkFlags>
+						<damageData>
+							<rect>(0,0.35,1,0.3)</rect>
+						</damageData>
+					</graphicData>
+					<uiIconPath>Building/VRE_HemogenPipes</uiIconPath>
+					<uiIconScale>0.7</uiIconScale>
+					<building>
+						<ai_chillDestination>false</ai_chillDestination>
+						<isInert>true</isInert>
+						<isEdifice>false</isEdifice>
+						<blueprintGraphicData>
+							<texPath>Building/Linked/VRE_HemogenPipes_Blueprint_Atlas</texPath>
+						</blueprintGraphicData>
+					</building>
+					<drawerType>MapMeshOnly</drawerType>
+					<altitudeLayer>Conduits</altitudeLayer>
+					<passability>Standable</passability>
+					<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+					<statBases>
+						<MaxHitPoints>40</MaxHitPoints>
+						<WorkToBuild>35</WorkToBuild>
+						<Flammability>1.0</Flammability>
+					</statBases>
+					<drawStyleCategory>Conduits</drawStyleCategory>
+					<costList>
+						<Steel>3</Steel>
+						<Gold>1</Gold>
+					</costList>
+					<comps>
+						<li Class="PipeSystem.CompProperties_Resource">
+							<pipeNet>VRE_HemogenNet</pipeNet>
+						</li>
+						<li Class="PipeSystem.CompProperties_SpillWhenDamaged">
+							<spillEachTicks>600</spillEachTicks>
+							<startAtHitPointsPercent>0.333</startAtHitPointsPercent>
+							<amountToDraw>1</amountToDraw>
+							<filthMaxSpawnRadius>1</filthMaxSpawnRadius>
+							<chooseFilthFrom>
+								<li>Filth_Blood</li>
+							</chooseFilthFrom>
+						</li>
+					</comps>
+					<placeWorkers>
+						<li>PipeSystem.PlaceWorker_Pipe</li>
+					</placeWorkers>
+					<rotatable>false</rotatable>
+					<selectable>true</selectable>
+					<neverMultiSelect>true</neverMultiSelect>
+					<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+					<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+					<designationCategory>Biotech</designationCategory>
+					<constructEffect>ConstructMetal</constructEffect>
+					<clearBuildingArea>false</clearBuildingArea>
+				</ThingDef>
+			</value>
+		</Operation>
+
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_UndergroundHemogenPipe"]</xpath>
+			<value>
+				<ThingDef ParentName="BuildingBase">
+					<defName>VRE_UndergroundHemogenPipe</defName>
+					<label>hidden hemogen pipe</label>
+					<description>Hidden steel pipes designed to transport hemogen between taps, drains, vats and hemogen-fueled structures.</description>
+					<thingClass>PipeSystem.Building_Pipe</thingClass>
+					<category>Building</category>
+					<tickerType>Rare</tickerType>
+					<graphicData>
+						<texPath>UI/CSG/IConduit</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<linkType>Basic</linkType>
+						<linkFlags>
+							<li>Custom7</li>
+						</linkFlags>
+						<damageData>
+							<rect>(0,0.35,1,0.3)</rect>
+						</damageData>
+					</graphicData>
+					<uiIconPath>Building/VRE_BuriedHemogenPipes</uiIconPath>
+					<uiIconScale>0.7</uiIconScale>
+					<building>
+						<ai_chillDestination>false</ai_chillDestination>
+						<isInert>true</isInert>
+						<isEdifice>false</isEdifice>
+						<blueprintGraphicData>
+							<texPath>Building/Linked/VRE_HemogenPipes_Blueprint_Atlas</texPath>
+						</blueprintGraphicData>
+						<ai_neverTrashThis>true</ai_neverTrashThis>
+						<isTargetable>false</isTargetable>
+						<expandHomeArea>false</expandHomeArea>
+						<canBeDamagedByAttacks>false</canBeDamagedByAttacks>
+					</building>
+					<drawerType>MapMeshOnly</drawerType>
+					<altitudeLayer>Conduits</altitudeLayer>
+					<passability>Standable</passability>
+					<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+					<statBases>
+						<MaxHitPoints>48</MaxHitPoints>
+						<WorkToBuild>280</WorkToBuild>
+						<Flammability>0</Flammability>
+					</statBases>
+					<drawStyleCategory>Conduits</drawStyleCategory>
+					<costList>
+						<Steel>6</Steel>
+						<Gold>2</Gold>
+					</costList>
+					<comps>
+						<li Class="PipeSystem.CompProperties_Resource">
+							<pipeNet>VRE_HemogenNet</pipeNet>
+						</li>
+						<li Class="PipeSystem.CompProperties_SpillWhenDamaged">
+							<spillEachTicks>1200</spillEachTicks>
+							<startAtHitPointsPercent>0.333</startAtHitPointsPercent>
+							<amountToDraw>1</amountToDraw>
+							<filthMaxSpawnRadius>1</filthMaxSpawnRadius>
+							<chooseFilthFrom>
+								<li>Filth_Blood</li>
+							</chooseFilthFrom>
+						</li>
+					</comps>
+					<placeWorkers>
+						<li>PipeSystem.PlaceWorker_Pipe</li>
+					</placeWorkers>
+					<rotatable>false</rotatable>
+					<selectable>true</selectable>
+					<neverMultiSelect>true</neverMultiSelect>
+					<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+					<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+					<designationCategory>Biotech</designationCategory>
+					<constructEffect>ConstructMetal</constructEffect>
+					<clearBuildingArea>false</clearBuildingArea>
+				</ThingDef>
+			</value>
+		</Operation>
+
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_HemogenValve"]</xpath>
+			<value>
+				<ThingDef ParentName="BuildingBase">
+					<defName>VRE_HemogenValve</defName>
+					<label>hemogen valve</label>
+					<description>Switches hemogen flow on/off.</description>
+					<thingClass>PipeSystem.Building_PipeValve</thingClass>
+					<category>Building</category>
+					<graphicData>
+						<texPath>Building/HemogenValve/VRE_HemogenValve</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<shaderType>Transparent</shaderType>
+						<damageData>
+							<rect>(0.2,0.2,0.6,0.6)</rect>
+						</damageData>
+					</graphicData>
+					<building>
+						<ai_chillDestination>false</ai_chillDestination>
+						<allowWireConnection>false</allowWireConnection>
+					</building>
+					<altitudeLayer>Building</altitudeLayer>
+					<passability>Standable</passability>
+					<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+					<statBases>
+						<MaxHitPoints>120</MaxHitPoints>
+						<WorkToBuild>200</WorkToBuild>
+						<Flammability>1.0</Flammability>
+						<Beauty>-2</Beauty>
+					</statBases>
+					
+					<costList>
+						<Steel>5</Steel>
+						<Gold>1</Gold>
+					</costList>
+					<comps>
+						<li Class="PipeSystem.CompProperties_PipeValve">
+							<pipeNet>VRE_HemogenNet</pipeNet>
+							<alwaysLinkToPipes>true</alwaysLinkToPipes>
+						</li>
+						<li Class="CompProperties_Flickable">
+							<commandTexture>Things/Item/Resource/HemogenPack/HemogenPack_c</commandTexture>
+							<commandLabelKey>VRE_HemogenValve</commandLabelKey>
+							<commandDescKey>VRE_HemogenValveDesc</commandDescKey>
+						</li>
+					</comps>
+					<rotatable>false</rotatable>
+					<selectable>true</selectable>
+					<neverMultiSelect>false</neverMultiSelect>
+					<tickerType>Normal</tickerType>
+					<designationCategory>Biotech</designationCategory>
+					<constructEffect>ConstructMetal</constructEffect>
+				</ThingDef>
+			</value>
+		</Operation>
+
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_HemogenVat"]</xpath>
+			<value>
+				<ThingDef ParentName="BuildingBase">
+					<defName>VRE_HemogenVat</defName>
+					<label>hemogen vat</label>
+					<description>An industrial liquid storage vat meant for storing hemogen delivered via hemogen pipe network. Vats can be designated to be siphoned for usable hemogen as needed.</description>
+					<drawerType>MapMeshAndRealTime</drawerType>
+					<graphicData>
+						<texPath>Building/VRE_HemogenVat</texPath>
+						<graphicClass>Graphic_Multi</graphicClass>
+						<drawSize>(2.7,2.7)</drawSize>
+						<damageData>
+							<cornerTL>Damage/Corner</cornerTL>
+							<cornerTR>Damage/Corner</cornerTR>
+							<cornerBL>Damage/Corner</cornerBL>
+							<cornerBR>Damage/Corner</cornerBR>
+						</damageData>
+					</graphicData>
+					<uiIconScale>0.8</uiIconScale>
+					<castEdgeShadows>true</castEdgeShadows>
+					<staticSunShadowHeight>0.2</staticSunShadowHeight>
+					<altitudeLayer>Building</altitudeLayer>
+					<passability>PassThroughOnly</passability>
+					<pathCost>50</pathCost>
+					<blockWind>true</blockWind>
+					<fillPercent>0.40</fillPercent>
+					<rotatable>false</rotatable>
+					<tickerType>Normal</tickerType>
+					<statBases>
+						<MaxHitPoints>150</MaxHitPoints>
+						<WorkToBuild>800</WorkToBuild>
+						<Mass>20</Mass>
+						<Flammability>1.0</Flammability>
+					</statBases>
+					<size>(2,2)</size>
+					<costList>
+						<Steel>180</Steel>
+						<Gold>20</Gold>
+					</costList>
+					<comps>
+						<li Class="PipeSystem.CompProperties_ResourceStorage">
+							<pipeNet>VRE_HemogenNet</pipeNet>
+							<storageCapacity>200</storageCapacity>
+							<barSize>(0.75, 0.20)</barSize> 
+							<margin>0.05</margin> 
+							<centerOffset>(0, 0, -0.6)</centerOffset>
+						</li>
+					</comps>
+					<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+					<designationCategory>Biotech</designationCategory>
+					<constructEffect>ConstructMetal</constructEffect>
+					<canOverlapZones>false</canOverlapZones>
+				</ThingDef>
+			</value>
+		</Operation>
+
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_HemogenTap"]</xpath>
+			<value>
+				<ThingDef ParentName="FurnitureBase">
+					<defName>VRE_HemogenTap</defName>
+					<label>hemogen tap</label>
+					<description>A hopper-like storage basin meant to dispense hemogen for later use.</description>
+					<thingClass>Building_Storage</thingClass>
+					<graphicData>
+						<texPath>Building/VRE_HemogenTap</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<damageData>
+							<cornerTL>Damage/Corner</cornerTL>
+							<cornerTR>Damage/Corner</cornerTR>
+							<cornerBL>Damage/Corner</cornerBL>
+							<cornerBR>Damage/Corner</cornerBR>
+						</damageData>
+						<drawRotated>false</drawRotated>
+						<allowFlip>false</allowFlip>
+					</graphicData>
+					<rotatable>false</rotatable>
+					<altitudeLayer>Building</altitudeLayer>
+					<passability>PassThroughOnly</passability>
+					<fillPercent>0.5</fillPercent>
+					<castEdgeShadows>true</castEdgeShadows>
+					<pathCost>50</pathCost>
+					<statBases>
+						<MaxHitPoints>100</MaxHitPoints>
+						<Mass>8</Mass>
+						<WorkToBuild>600</WorkToBuild>
+						<Flammability>1.0</Flammability>
+						<Beauty>0.5</Beauty>
+					</statBases>
+					<size>(1,1)</size>
+					<costList>
+						<Steel>50</Steel>
+						<Gold>10</Gold>
+					</costList>
+					<building>
+						<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+						<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+						<fixedStorageSettings>
+							<filter>
+								<disallowNotEverStorable>true</disallowNotEverStorable>
+								<thingDefs>
+									<li>HemogenPack</li>
+								</thingDefs>
+							</filter>
+						</fixedStorageSettings>
+						<defaultStorageSettings>
+							<priority>Important</priority>
+							<filter>
+								<disallowNotEverStorable>true</disallowNotEverStorable>
+								<thingDefs>
+									<li>HemogenPack</li>
+								</thingDefs>
+							</filter>
+						</defaultStorageSettings>
+					</building>
+					<inspectorTabs>
+						<li>ITab_Storage</li>
+					</inspectorTabs>
+					<designationCategory>Biotech</designationCategory>
+					<staticSunShadowHeight>0.5</staticSunShadowHeight>
+					<surfaceType>Item</surfaceType>
+					<canOverlapZones>false</canOverlapZones>
+					<comps>
+						<li Class="PipeSystem.CompProperties_ConvertResourceToThing">
+							<pipeNet>VRE_HemogenNet</pipeNet>
+							<thing>HemogenPack</thing>
+							
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</Operation>
+
+		<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VRE_HemogenDrain"]</xpath>
+			<value>
+				<ThingDef ParentName="FurnitureBase">
+					<defName>VRE_HemogenDrain</defName>
+					<label>hemogen drain</label>
+					<description>A hopper-like storage basin meant to input hemogen into the network, filling up connected vats.</description>
+					<thingClass>Building_Storage</thingClass>
+					<graphicData>
+						<texPath>Building/VRE_HemogenDrain</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<damageData>
+							<cornerTL>Damage/Corner</cornerTL>
+							<cornerTR>Damage/Corner</cornerTR>
+							<cornerBL>Damage/Corner</cornerBL>
+							<cornerBR>Damage/Corner</cornerBR>
+						</damageData>
+						<drawRotated>false</drawRotated>
+						<allowFlip>false</allowFlip>
+					</graphicData>
+					<rotatable>false</rotatable>
+					<altitudeLayer>BuildingOnTop</altitudeLayer>
+					<!-- <altitudeLayer>Building</altitudeLayer> -->
+					<passability>Standable</passability>
+					<!-- <passability>PassThroughOnly</passability> -->
+					<fillPercent>0.5</fillPercent>
+					<castEdgeShadows>true</castEdgeShadows>
+					<pathCost>50</pathCost>
+					<statBases>
+						<MaxHitPoints>100</MaxHitPoints>
+						<Mass>8</Mass>
+						<WorkToBuild>600</WorkToBuild>
+						<Flammability>1.0</Flammability>
+						<Beauty>0.5</Beauty>
+					</statBases>
+					<size>(1,1)</size>
+					<costList>
+						<Steel>45</Steel>
+						<Gold>10</Gold>
+					</costList>
+					<building>
+						<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+						<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+						<fixedStorageSettings>
+							<filter>
+								<disallowNotEverStorable>true</disallowNotEverStorable>
+								<thingDefs>
+									<li>HemogenPack</li>
+								</thingDefs>
+							</filter>
+						</fixedStorageSettings>
+						<defaultStorageSettings>
+							<priority>Important</priority>
+							<filter>
+								<disallowNotEverStorable>true</disallowNotEverStorable>
+								<thingDefs>
+									<li>HemogenPack</li>
+								</thingDefs>
+							</filter>
+						</defaultStorageSettings>
+					</building>
+					<inspectorTabs>
+						<li>ITab_Storage</li>
+					</inspectorTabs>
+					<designationCategory>Biotech</designationCategory>
+					<staticSunShadowHeight>0.5</staticSunShadowHeight>
+					<surfaceType>Item</surfaceType>
+					<canOverlapZones>false</canOverlapZones>
+					<comps>
+						<li Class="PipeSystem.CompProperties_ConvertThingToResource">
+							<pipeNet>VRE_HemogenNet</pipeNet>
+							<thing>HemogenPack</thing>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</Operation>
+		
+	</Patch>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+<!-- The Claws of Kif; Hostile Supporters -->
+	<FactionDef Name="BTD_PirateBase" Abstract="True">
+		<defName>BTD_PirateBase</defName>
+		<pawnSingular>patron</pawnSingular>
+		<pawnsPlural>patrons</pawnsPlural>
+		<categoryTag>Pirate</categoryTag>
+		<permanentEnemy>true</permanentEnemy>
+		<listOrderPriority>30</listOrderPriority>
+		<settlementGenerationWeight>1</settlementGenerationWeight>
+		<requiredCountAtGameStart>1</requiredCountAtGameStart>
+		<canSiege>true</canSiege>
+		<canStageAttacks>true</canStageAttacks>
+		<leaderTitle>prime patron</leaderTitle>
+		<techLevel>Spacer</techLevel>
+		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+	<!-- change this -->
+		<allowedCultures>
+			<li>Kriminul</li>
+		</allowedCultures>
+	<!-- Update Xenos for Patrons as needed-->
+		<xenotypeSet>
+			<xenotypeChances>
+				<BT_Voidling>0.70</BT_Voidling>
+			</xenotypeChances>
+		</xenotypeSet>
+		<backstoryCategories>
+			<li>Pirate</li>
+			<li>Offworld</li>
+		</backstoryCategories>
+		<raidLootValueFromPointsCurve>
+			<points>
+				<li>(35, 8)</li>
+				<li>(100, 60)</li>
+				<li>(1000, 250)</li>
+				<li>(2000, 400)</li>
+				<li>(4000, 500)</li>
+				</points>
+		</raidLootValueFromPointsCurve>
+		<allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+		<raidLootMaker>PirateRaidLootMaker</raidLootMaker>
+		<maxPawnCostPerTotalPointsCurve>
+			<points>
+				<li>(0,35)</li>
+				<li>(70, 50)</li>
+				<li>(700, 100)</li>
+				<li>(1300, 150)</li>
+				<li>(100000, 10000)</li>
+			</points>
+		</maxPawnCostPerTotalPointsCurve>
+		<pawnGroupMakers Inherit="False">
+		<!-- Settlement defenders -->
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<BTD_Supporter_ClawsOfKif>10</BTD_Supporter_ClawsOfKif>
+					<BTD_ClawElite_ClawsOfKif>3</BTD_ClawElite_ClawsOfKif>
+					<BTD_ClawPriest_ClawsOfKif>1</BTD_ClawPriest_ClawsOfKif>
+				</options>
+			</li>
+			<!-- Raids - varied composition -->
+			<li>
+				<kindDef>Combat</kindDef>
+				<options>
+					<BTD_Supporter_ClawsOfKif>10</BTD_Supporter_ClawsOfKif>
+					<BTD_ClawElite_ClawsOfKif>3</BTD_ClawElite_ClawsOfKif>
+					<BTD_ClawPriest_ClawsOfKif>0.5</BTD_ClawPriest_ClawsOfKif>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+	</FactionDef>
+
+
+	<FactionDef ParentName="BTD_PirateBase">
+		<defName>BTD_Pirates</defName>
+		<label>The Claws of Kif</label>
+		<fixedName>The Claws of Kif</fixedName>
+		<description>A chaotic faction worshipping the disruptive feline entity, Kif. This faction hosts Xenotypes created by my patrons.</description>
+		<factionIconPath>UI/Icons/Ideoligion_AnimalPrint/Ideoligion_AnimalPrintC</factionIconPath>
+		<colorSpectrum>
+			<li>(0.47, 0.47, 0.47)</li>
+			<li>(0.44, 0.44, 0.44)</li>
+		</colorSpectrum>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>10</configurationListOrderPriority>
+	</FactionDef>
+
+</Defs>

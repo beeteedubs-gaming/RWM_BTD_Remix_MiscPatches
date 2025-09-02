@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Named Ones patron names -->
+  <RulePackDef>
+    <defName>BTD_NameMaker_NamedOnes</defName>
+    <include>
+      <li>NamerPersonSophian</li>
+	  <li>NamerPersonCorunan</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <!-- ped patron names -->
+        <li>r_name(p=50)->Rodion 'Nikopol' Alifanov</li>
+        <li>r_name(p=50)->Aurellus 'Aurellus' Van Soren</li>
+        <li>r_name(p=50)->Sean 'Seanbeag' Beag</li>
+        <li>r_name(p=50)->Orcus 'Nox' Reaper</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- Claws of Kif cultist names -->
+  <RulePackDef>
+    <defName>BTD_NameMaker_ClawsOfKif</defName>
+    <include>
+      <li>NamerPersonSophian</li>
+	  <li>NamerPersonCorunan</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <!-- ped patron names -->
+        <li>r_name(p=50)->Horus 'Horus' Visoren</li>
+        <li>r_name(p=50)->Drew 'Droopy' Peanuts</li>
+        <li>r_name(p=50)->Quarrel 'Lamp' Nyx</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

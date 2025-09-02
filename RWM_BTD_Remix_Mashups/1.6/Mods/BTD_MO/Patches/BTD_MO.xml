@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Set both factions to Medieval tech -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/FactionDef[@Name="BTD_OutlanderBase"]/techLevel</xpath>
+    <value>
+      <techLevel>Medieval</techLevel>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/FactionDef[@Name="BTD_PirateBase"]/techLevel</xpath>
+    <value>
+      <techLevel>Medieval</techLevel>
+    </value>
+  </Operation>
+
+  <!-- ============ NAMED ONES PATCHES ============ -->
+  
+  <!-- Base apparel tags - Fixed to use @Name for abstract def -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[@Name="BTD_OutlanderPawnKindBase"]/apparelTags</xpath>
+    <value>
+      <apparelTags>
+        <li>MedievalBasic</li>
+        <li>MedievalAdvanced</li>
+      </apparelTags>
+    </value>
+  </Operation>
+
+  <!-- Villager weapons - remove guns -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Villager_NamedOnes"]/weaponTags</xpath>
+    <value>
+      <weaponTags>
+        <li>MedievalMeleeBasic</li>
+      </weaponTags>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Villager_NamedOnes"]/weaponMoney</xpath>
+    <value>
+      <weaponMoney>150~350</weaponMoney>
+    </value>
+  </Operation>
+
+  <!-- Town Guard -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Town_Guard"]/weaponTags</xpath>
+    <value>
+      <weaponTags>
+        <li>MedievalMeleeDecent</li>
+        <li>MedievalMeleeAdvanced</li>
+      </weaponTags>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Town_Guard"]/weaponMoney</xpath>
+    <value>
+      <weaponMoney>400~700</weaponMoney>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Town_Guard"]/apparelRequired</xpath>
+    <value>
+      <apparelRequired>
+        <li>Apparel_Pants</li>
+        <li>Apparel_BasicShirt</li>
+        <li>DankPyon_Apparel_Hauberk</li>
+        <li>DankPyon_Headgear_ChainCoif</li>
+        <li>Apparel_Cape</li>
+      </apparelRequired>
+    </value>
+  </Operation>
+
+  <!-- Town Trader -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Town_Trader"]/weaponTags</xpath>
+    <value>
+      <weaponTags>
+        <li>MedievalMeleeBasic</li>
+      </weaponTags>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Town_Trader"]/weaponMoney</xpath>
+    <value>
+      <weaponMoney>350~500</weaponMoney>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Town_Trader"]/apparelRequired</xpath>
+    <value>
+      <apparelRequired>
+        <li>Apparel_Pants</li>
+        <li>Apparel_BasicShirt</li>
+        <li>DankPyon_Apparel_Leather_Tunic</li>
+        <li>Apparel_BowlerHat</li>
+        <li>Apparel_Cape</li>
+      </apparelRequired>
+    </value>
+  </Operation>
+
+  <!-- Prime/Councilman -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Town_Councilman"]/weaponTags</xpath>
+    <value>
+      <weaponTags>
+        <li>MedievalMeleeAdvanced</li>
+      </weaponTags>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Town_Councilman"]/weaponMoney</xpath>
+    <value>
+      <weaponMoney>400~700</weaponMoney>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Town_Councilman"]/apparelRequired</xpath>
+    <value>
+      <apparelRequired>
+        <li>Apparel_Pants</li>
+        <li>Apparel_BasicShirt</li>
+        <li>DankPyon_Apparel_Heavy_Hauberk</li>
+        <li>Apparel_Beret</li>
+        <li>Apparel_Cape</li>
+      </apparelRequired>
+    </value>
+  </Operation>
+
+  <!-- ============ CLAWS OF KIF PATCHES ============ -->
+
+  <!-- Base apparel tags - Already correct with @Name -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[@Name="BTD_ClawsBase"]/apparelTags</xpath>
+    <value>
+      <apparelTags>
+        <li>MedievalMilitaryBasic</li>
+        <li>MedievalMilitaryDecent</li>
+      </apparelTags>
+    </value>
+  </Operation>
+
+  <!-- Claw Cultist -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Supporter_ClawsOfKif"]/weaponTags</xpath>
+    <value>
+      <weaponTags>
+        <li>MedievalMeleeDecent</li>
+      </weaponTags>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Supporter_ClawsOfKif"]/weaponMoney</xpath>
+    <value>
+      <weaponMoney>400~700</weaponMoney>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Supporter_ClawsOfKif"]/apparelRequired</xpath>
+    <value>
+      <apparelRequired>
+        <li>Apparel_Pants</li>
+        <li>Apparel_BasicShirt</li>
+        <li>DankPyon_Apparel_Hauberk</li>
+        <li>DankPyon_Headgear_CultistHood</li>
+        <li>BTD_Apparel_Cloak</li>
+      </apparelRequired>
+    </value>
+  </Operation>
+
+  <!-- Claw Elite -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_ClawElite_ClawsOfKif"]/weaponTags</xpath>
+    <value>
+      <weaponTags>
+        <li>MedievalMeleeAdvanced</li>
+      </weaponTags>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_ClawElite_ClawsOfKif"]/weaponMoney</xpath>
+    <value>
+      <weaponMoney>500~900</weaponMoney>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_ClawElite_ClawsOfKif"]/apparelRequired</xpath>
+    <value>
+      <apparelRequired>
+        <li>Apparel_Pants</li>
+        <li>Apparel_BasicShirt</li>
+        <li>DankPyon_Apparel_Brigandine</li>
+        <li>DankPyon_Headgear_ChainClosedFlatTopHelmet</li>
+        <li>BTD_Apparel_Cloak</li>
+      </apparelRequired>
+    </value>
+  </Operation>
+
+  <!-- Claw Priest -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_ClawPriest_ClawsOfKif"]/weaponTags</xpath>
+    <value>
+      <weaponTags>
+        <li>MedievalMeleeAdvanced</li>
+      </weaponTags>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_ClawPriest_ClawsOfKif"]/weaponMoney</xpath>
+    <value>
+      <weaponMoney>600~1000</weaponMoney>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/PawnKindDef[defName="BTD_ClawPriest_ClawsOfKif"]/apparelRequired</xpath>
+    <value>
+      <apparelRequired>
+        <li>Apparel_Pants</li>
+        <li>Apparel_BasicShirt</li>
+        <li>DankPyon_Apparel_FullPlate</li>
+        <li>BTD_Apparel_Cloak</li>
+        <li>DankPyon_Headgear_GreatHelm</li>
+      </apparelRequired>
+    </value>
+  </Operation>
+
+  <!-- Remove biocoded weapons since medieval -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/PawnKindDef[defName="BTD_Supporter_ClawsOfKif"]/biocodeWeaponChance</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/PawnKindDef[defName="BTD_ClawElite_ClawsOfKif"]/biocodeWeaponChance</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/PawnKindDef[defName="BTD_ClawPriest_ClawsOfKif"]/biocodeWeaponChance</xpath>
+  </Operation>
+
+</Patch>

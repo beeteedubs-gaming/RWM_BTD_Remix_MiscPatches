@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+<!-- Remove Factions -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>//FactionDef[defName="AG_OutlanderCivilUnion"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//FactionDef[defName="AG_XenohumanPirates"]</xpath>
+	</Operation>
+
+<!-- Remove Xenos -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Fleetkind"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Helixien"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Animusen"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Lapis"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Wretch"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Taukai"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Hiveling"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_MindDevourer"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Efreet"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Drakonori"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Nereid"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_Forsaken"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>//XenotypeDef[defName="AG_RandomCustom"]</xpath>
+	</Operation>
+
+<!-- Remove Scenarios -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>//ScenarioDef[defName="AG_WretchScenario"]</xpath>
+	</Operation>
+		<Operation Class="PatchOperationRemove">
+		<xpath>//ScenarioDef[defName="AG_ForsakenCrashlanded"]</xpath>
+	</Operation>
+
+</Patch>

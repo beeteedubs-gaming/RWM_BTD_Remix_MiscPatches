@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+<!-- Adjust Default Factions -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="TribeRoughNeanderthal"]</xpath>
+		<value>
+			<requiredCountAtGameStart>0</requiredCountAtGameStart>
+			<maxCountAtGameStart>0</maxCountAtGameStart>
+		</value>
+	</Operation>
+
+</Patch>

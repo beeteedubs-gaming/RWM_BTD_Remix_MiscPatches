@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>BTD Remix: Mashups and Tweaks</name>	
+	<author>beeteedubs</author>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.5</li>
+	</supportedVersions>
+	<packageId>btd.remix.mashups</packageId>
+	<description>This mod may add various factions, xenotypes, and ideologies to the game, as well as patch various mods (if present) to my personal taste to support my playthroughs.</description>
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Royalty</packageId>
+			<displayName>Royalty</displayName>
+		</li>
+		<li>
+			<packageId>Ludeon.RimWorld.Biotech</packageId>
+			<displayName>Biotech</displayName>
+		</li>
+		<li>
+			<packageId>sarg.alphagenes</packageId>
+			<displayName>Alpha Genes</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2891845502</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+		<li>
+			<packageId>vanillaracesexpanded.customicons</packageId>
+			<displayName>Vanilla Races Expanded - Custom Icons</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2917311689</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>VanillaExpanded.Ideo.IconsandSymbols</packageId>
+			<displayName>Vanilla Ideology Expanded - Icons and Symbols</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2552609458</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>VanillaExpanded.Ideo.SophianStyle</packageId>
+			<displayName>Vanilla Ideology Expanded - Sophian Style</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3194606539</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>DSP.HalituisAmaricanous</packageId>
+			<displayName>Dune Style Pack</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2993301551</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>VanillaExpanded.VMemesE</packageId>
+			<displayName>Vanilla Ideology Expanded - Memes and Structures</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2636329500</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>Sarg.AlphaMemes</packageId>
+			<displayName>Alpha Memes</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2661356814</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>VanillaExpanded.VAPPE</packageId>
+			<displayName>Vanilla Apparel Expanded</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/1814987817</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>sarg.alphagenes</li>
+		<li>VanillaExpanded.VAPPE</li>
+		<li>VanillaExpanded.Ideo.IconsandSymbols</li>
+		<li>vanillaracesexpanded.customicons</li>
+		<li>VanillaExpanded.Ideo.SophianStyle</li>
+		<li>DSP.HalituisAmaricanous</li>
+		<li>VanillaExpanded.VMemesE</li>
+		<li>Sarg.AlphaMemes</li>
+		<li>DankPyon.Medieval.Overhaul</li>
+		<li>vanillaracesexpanded.sanguophage</li>
+	</loadAfter>
+</ModMetaData>
+

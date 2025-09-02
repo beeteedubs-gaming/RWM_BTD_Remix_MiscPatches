@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+<!-- Claws of Kif PawnKinds -->
+	<PawnKindDef Name="BTD_ClawsBase" Abstract="True">
+		<race>Human</race>
+		<defaultFactionDef>BTD_Pirates</defaultFactionDef>
+		<backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+		<invNutrition>2.55</invNutrition>
+		<apparelTags>
+			<li>IndustrialAdvanced</li>
+			<li>SpacerMilitary</li>
+		</apparelTags>
+		<nameMaker>BTD_NameMaker_ClawsOfKif</nameMaker>
+	</PawnKindDef>
+
+	<!-- Basic raider/cultist -->
+	<PawnKindDef ParentName="BTD_ClawsBase">
+		<defName>BTD_Supporter_ClawsOfKif</defName>
+		<label>claw cultist</label>
+		<combatPower>65</combatPower>
+		<itemQuality>Normal</itemQuality>
+		<isFighter>true</isFighter>
+		<gearHealthRange>0.5~2.0</gearHealthRange>
+		<weaponTags>
+			<li>Gun</li>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<weaponMoney>1200~1500</weaponMoney>
+		<apparelMoney>400~600</apparelMoney>
+		<apparelRequired>
+			<li>Apparel_Pants</li>
+			<li>Apparel_BasicShirt</li>
+			<li>Apparel_FlakVest</li>
+			<li>Apparel_PowerArmorHelmet</li>
+			<li>BTD_Apparel_Cloak</li>
+		</apparelRequired>
+		<apparelTags>
+			<li>BeltDefensePop</li>
+		</apparelTags>
+		<specificApparelRequirements>
+			<li>
+				<bodyPartGroup>FullHead</bodyPartGroup>
+				<colorGenerator Class="ColorGenerator_Single">
+					<color>(0.4, 0.4, 0.4)</color>
+				</colorGenerator>
+			</li>
+			<li>
+				<bodyPartGroup>Torso</bodyPartGroup>
+				<apparelLayer>Shell</apparelLayer>
+				<colorGenerator Class="ColorGenerator_Single">
+					<color>(0.4, 0.4, 0.4)</color>
+				</colorGenerator>
+			</li>
+		</specificApparelRequirements>
+		<techHediffsChance>0.10</techHediffsChance>
+		<techHediffsMoney>200~1000</techHediffsMoney>
+		<techHediffsTags>
+			<li>Simple</li>
+			<li>Advanced</li>
+			<li>ImplantEmpireCommon</li>
+		</techHediffsTags>
+		<biocodeWeaponChance>1</biocodeWeaponChance>
+		<initialWillRange>1~3</initialWillRange>
+		<initialResistanceRange>17~25</initialResistanceRange>
+	</PawnKindDef>
+
+	<!-- Elite fighter -->
+	<PawnKindDef ParentName="BTD_ClawsBase">
+		<defName>BTD_ClawElite_ClawsOfKif</defName>
+		<label>claw elite</label>
+		<combatPower>100</combatPower>
+		<itemQuality>Good</itemQuality>
+		<isFighter>true</isFighter>
+		<gearHealthRange>0.8~2.5</gearHealthRange>
+		<weaponTags>
+			<li>GunHeavy</li>
+			<li>GunSingleUse</li>
+		</weaponTags>
+		<weaponMoney>1200~1500</weaponMoney>
+		<apparelMoney>800~1500</apparelMoney>
+		<apparelRequired>
+			<li>Apparel_Pants</li>
+			<li>Apparel_BasicShirt</li>
+			<li>Apparel_FlakVest</li>
+			<li>Apparel_ArmorHelmetCataphract</li>
+			<li>BTD_Apparel_Cloak</li>
+		</apparelRequired>
+		<apparelTags>
+			<li>BeltDefensePop</li>
+			<li>PrestigeCombatGear</li>
+		</apparelTags>
+		<specificApparelRequirements>
+			<li>
+				<bodyPartGroup>FullHead</bodyPartGroup>
+				<colorGenerator Class="ColorGenerator_Single">
+					<color>(0.4, 0.4, 0.4)</color>
+				</colorGenerator>
+			</li>
+			<li>
+				<bodyPartGroup>Torso</bodyPartGroup>
+				<apparelLayer>Shell</apparelLayer>
+				<colorGenerator Class="ColorGenerator_Single">
+					<color>(0.4, 0.4, 0.4)</color>
+				</colorGenerator>
+			</li>
+		</specificApparelRequirements>
+		<techHediffsChance>0.20</techHediffsChance>
+		<techHediffsMoney>800~2000</techHediffsMoney>
+		<techHediffsTags>
+			<li>Advanced</li>
+			<li>AdvancedWeapon</li>
+			<li>ImplantEmpireRoyal</li>
+		</techHediffsTags>
+		<biocodeWeaponChance>1</biocodeWeaponChance>
+		<initialWillRange>3~5</initialWillRange>
+		<initialResistanceRange>20~30</initialResistanceRange>
+	</PawnKindDef>
+
+	<!-- Chaos priest/leader type -->
+	<PawnKindDef ParentName="BTD_ClawsBase">
+		<defName>BTD_ClawPriest_ClawsOfKif</defName>
+		<label>claw priest</label>
+		<labelPlural>chaos priests of Kif</labelPlural>
+		<combatPower>90</combatPower>
+		<factionLeader>true</factionLeader>
+		<minGenerationAge>30</minGenerationAge>
+		<isFighter>true</isFighter>
+		<gearHealthRange>1~1</gearHealthRange>
+		<itemQuality>Excellent</itemQuality>
+		<weaponMoney>1200~1500</weaponMoney>
+		<weaponTags>
+			<li>GunHeavy</li>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<apparelMoney>1500~3000</apparelMoney>
+		<apparelTags>
+			<li>BeltDefensePop</li>
+			<li>PrestigeCombatGear</li>
+			<li>Royal</li>
+		</apparelTags>
+		<apparelRequired>
+			<li>Apparel_Pants</li>
+			<li>Apparel_BasicShirt</li>
+			<li>VAE_Apparel_TrooperArmor</li>
+			<li>BTD_Apparel_Cloak</li>
+			<li>Apparel_ArmorHelmetCataphractPrestige</li>
+		</apparelRequired>
+		<specificApparelRequirements>
+			<li>
+				<bodyPartGroup>FullHead</bodyPartGroup>
+				<colorGenerator Class="ColorGenerator_Single">
+					<color>(0.4, 0.4, 0.4)</color>
+				</colorGenerator>
+			</li>
+			<li>
+				<bodyPartGroup>Torso</bodyPartGroup>
+				<apparelLayer>Shell</apparelLayer>
+				<colorGenerator Class="ColorGenerator_Single">
+					<color>(0.4, 0.4, 0.4)</color>
+				</colorGenerator>
+			</li>
+		</specificApparelRequirements>
+		<techHediffsChance>0.35</techHediffsChance>
+		<techHediffsMoney>1500~3500</techHediffsMoney>
+		<techHediffsTags>
+			<li>Advanced</li>
+			<li>AdvancedWeapon</li>
+			<li>ImplantEmpireRoyal</li>
+			<li>ArchotechImplant</li>
+		</techHediffsTags>
+		<biocodeWeaponChance>1</biocodeWeaponChance>
+		<initialWillRange>5~8</initialWillRange>
+		<initialResistanceRange>18~28</initialResistanceRange>
+	</PawnKindDef>
+
+</Defs>
